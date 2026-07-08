@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的效率工具</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f9;
+      --text: #1f2933;
+      --muted: #637083;
+      --accent: #166534;
+      --accent-dark: #14532d;
+      --line: #d9dee7;
+      --surface: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      width: min(100%, 640px);
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgb(31 41 51 / 10%);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    button {
+      min-height: 44px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background: var(--accent-dark);
+    }
+
+    ul {
+      margin: 24px 0 0;
+      padding-left: 22px;
+      line-height: 1.9;
+    }
+
+    .status {
+      min-height: 24px;
+      margin-top: 16px;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>我的效率工具</h1>
+    <p>把每天最重要的任务、学习资料和检查动作放在一起，开始前先想清楚，结束后确认没有遗漏。</p>
+    <button type="button" id="startButton">开始整理</button>
+    <div class="status" id="status" aria-live="polite"></div>
+    <ul>
+      <li>列出今天最重要的三件事</li>
+      <li>优先参考 MDN、GitHub Docs、React 中文文档和 Vite 中文文档</li>
+      <li>结束前检查 Git 状态，确认没有意外文件</li>
+    </ul>
+  </main>
+
+  <script>
+    const startButton = document.querySelector("#startButton");
+    const statusText = document.querySelector("#status");
+
+    startButton.addEventListener("click", () => {
+      statusText.textContent = "已开始整理，先选出今天最重要的一件事。";
+    });
+  </script>
+</body>
+</html>
